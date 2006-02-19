@@ -5,11 +5,11 @@ Summary:	griffith - film collection manager
 Summary(pl):	griffith - program kataloguj±cy filmy
 Name:		griffith
 Version:	0.5.1
-Release:	0.1
+Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/%{name}/%{name}_%{version}.tar.gz
-# Source0-md5:	a0ffd6076025d8e1f77ca043b169a2fb
+Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	74af6294c576bd7f0c413864c4e1d65e
 Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 URL:		http://griffith.vasconunes.net/

@@ -1,0 +1,12 @@
+diff -Nur griffith-0.5.1.org/Makefile griffith-0.5.1/Makefile
+--- griffith-0.5.1.org/Makefile	2006-02-11 13:53:15.000000000 +0100
++++ griffith-0.5.1/Makefile	2006-02-11 13:53:22.000000000 +0100
+@@ -71,8 +71,6 @@
+ 	
+ 	if test -f $(PREFIX)/bin/griffith; then ${RM} $(PREFIX)/bin/griffith; fi	
+ 
+-	ln -s $(LIBDIR)/griffith $(BINDIR)/griffith
+-	chmod +x $(BINDIR)/griffith
+ 	$(MAKE) -C docs install
+ 	
+ uninstall:
