@@ -8,8 +8,9 @@ Version:	0.5.1
 Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
+# wrrr. http://download.berlios.de/download.php?file=/griffith/griffith-0.5.1.tar.gz&key=2fd8408ad86e20cd41b1861f3f5cb1cd
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	6de26612b4b3471ab5b922743afd38b8
+# Source0-md5:	0c7e745b2a2483fc8578f1d286555ea3
 Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 URL:		http://griffith.vasconunes.net/
@@ -29,17 +30,15 @@ Requires:	python-ReportLab
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Griffith is a movie collection manager application. 
+Griffith is a movie collection manager application.
 
 %description -l pl
-Griffith to program s³u¿±cy do katalogowania i zarz±dzania kolekcj± 
+Griffith to program s³u¿±cy do katalogowania i zarz±dzania kolekcj±
 filmów.
 
 %prep
 %setup -q
 %patch0 -p1
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
