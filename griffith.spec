@@ -8,8 +8,8 @@ Version:	0.5.1
 Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	3c8d8835c4fbe73fb3c1063ea2f0116b
+Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
+# Source0-md5:	6de26612b4b3471ab5b922743afd38b8
 Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 URL:		http://griffith.vasconunes.net/
@@ -64,8 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README AUTHORS ChangeLog
 %attr(755,root,root) %{_bindir}/*
+%dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/%{name}
-%{_libdir}/%{name}
+# XXX: missing files in %{_libdir}/%{name}?
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
