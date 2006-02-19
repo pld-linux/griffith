@@ -9,7 +9,7 @@ Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	74af6294c576bd7f0c413864c4e1d65e
+# Source0-md5:	3c8d8835c4fbe73fb3c1063ea2f0116b
 Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 URL:		http://griffith.vasconunes.net/
