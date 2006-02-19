@@ -8,8 +8,8 @@ Version:	0.5.1
 Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-# wrrr. http://download.berlios.de/download.php?file=/griffith/griffith-0.5.1.tar.gz&key=2fd8408ad86e20cd41b1861f3f5cb1cd
-Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
+# download from http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	0c7e745b2a2483fc8578f1d286555ea3
 Source1:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
