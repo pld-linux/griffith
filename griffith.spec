@@ -1,5 +1,7 @@
 # TODO:
 # - fix desktop file ??
+# - Requires: /usr/bin/env -> /usr/bin/python for autodeps
+# - py_compile?
 #
 Summary:	griffith - film collection manager
 Summary(pl):	griffith - program kataloguj±cy filmy
@@ -21,13 +23,16 @@ BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 %pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
+Requires:	python-Imaging
+Requires:	python-ReportLab
 Requires:	python-gnome-gconf
 Requires:	python-gstreamer >= 0.8.2
 Requires:	python-pygtk-gtk >= 2:2.6.0
 Requires:	python-sqlite1
-Requires:	python-Imaging
-Requires:	python-ReportLab
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_libdir	%{_prefix}/lib
 
 %description
 Griffith is a movie collection manager application.
@@ -65,7 +70,55 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
 %attr(755,root,root) %{_libdir}/%{name}/%{name}
-# XXX: missing files in %{_libdir}/%{name}?
+%{_libdir}/%{name}/__init__.py
+%{_libdir}/%{name}/about.py
+%{_libdir}/%{name}/add.py
+%{_libdir}/%{name}/amazon.py
+%{_libdir}/%{name}/backup.py
+%{_libdir}/%{name}/config.py
+%{_libdir}/%{name}/cover.py
+%{_libdir}/%{name}/delete.py
+%{_libdir}/%{name}/edit.py
+%{_libdir}/%{name}/gdebug.py
+%{_libdir}/%{name}/gemail.py
+%{_libdir}/%{name}/gglobals.py
+%{_libdir}/%{name}/gutils.py
+%{_libdir}/%{name}/initialize.py
+%{_libdir}/%{name}/loan.py
+%{_libdir}/%{name}/main_treeview.py
+%{_libdir}/%{name}/movie.py
+%{_libdir}/%{name}/people.py
+%{_libdir}/%{name}/preferences.py
+%{_libdir}/%{name}/quick_filter.py
+%{_libdir}/%{name}/sql.py
+%{_libdir}/%{name}/update.py
+%{_libdir}/%{name}/version.py
+%{_libdir}/%{name}/view.py
+%{_libdir}/%{name}/widgets.py
+%dir %{_libdir}/%{name}/plugins
+%dir %{_libdir}/%{name}/plugins/export
+%{_libdir}/%{name}/plugins/export/PluginExportCSV.py
+%{_libdir}/%{name}/plugins/export/PluginExportHTML.py
+%{_libdir}/%{name}/plugins/export/PluginExportPDF.py
+%{_libdir}/%{name}/plugins/export/PluginExportXML.py
+%dir %{_libdir}/%{name}/plugins/movie
+%{_libdir}/%{name}/plugins/movie/PluginMovie7arte.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieAniDB.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieCSFD.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieCineMovies.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieCinematografo.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieClubeMyDVD.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieE-Pipoca.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieFilmweb.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieIMDB.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieMediadis.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieMoviefone.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieOFDb.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieOnet.py
+%{_libdir}/%{name}/plugins/movie/PluginMoviePTGate.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieStopklatka.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieTanukiAnime.py
+%{_libdir}/%{name}/plugins/movie/PluginMovieWP.py
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
