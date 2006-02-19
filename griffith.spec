@@ -10,7 +10,7 @@ Version:	0.5.1
 Release:	0.2
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-# download from http://download.berlios.de/%{name}/%{name}-%{version}.tar.gz
+# download from http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	0c7e745b2a2483fc8578f1d286555ea3
 Source1:	%{name}.desktop
@@ -54,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
-ln -fs %{_libdir}/%{name}/%{name} $RPM_BUILD_ROOT/%{_bindir}/%{name}
+ln -fs %{_libdir}/%{name}/%{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
@@ -62,8 +62,6 @@ install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -123,4 +121,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
-%{_mandir}/
+%{_mandir}/man?/*
