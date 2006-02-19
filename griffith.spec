@@ -29,6 +29,7 @@ Requires:	python-gnome-gconf
 Requires:	python-gstreamer >= 0.8.2
 Requires:	python-pygtk-gtk >= 2:2.6.0
 Requires:	python-sqlite1
+#Suggests:	python-gnome-extras
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
