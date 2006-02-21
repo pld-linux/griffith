@@ -28,7 +28,7 @@ Requires:	python-ReportLab
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.0
 Requires:	python-sqlite1
-Requires:	python-gnome-extras
+#Suggests:	python-gnome-extras
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
