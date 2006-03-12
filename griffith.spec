@@ -54,10 +54,10 @@ Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-extra-artwork = %{version}-%{release}
 
 %description extra-artwork
-More graphic files
+More graphic files.
 
 %description extra-artwork -l pl
-Dodatkowe pliki graficzne
+Dodatkowe pliki graficzne.
 
 %prep
 %setup -q -a1
@@ -93,32 +93,32 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/export_templates
 %{_datadir}/%{name}/glade
 %dir %{_datadir}/%{name}/images
-%{_datadir}/griffith/images/00.png
-%{_datadir}/griffith/images/01.png
-%{_datadir}/griffith/images/010.png
-%{_datadir}/griffith/images/02.png
-%{_datadir}/griffith/images/03.png
-%{_datadir}/griffith/images/04.png
-%{_datadir}/griffith/images/05.png
-%{_datadir}/griffith/images/06.png
-%{_datadir}/griffith/images/07.png
-%{_datadir}/griffith/images/08.png
-%{_datadir}/griffith/images/09.png
-%{_datadir}/griffith/images/default.png
-%{_datadir}/griffith/images/default_thumbnail.png
-%{_datadir}/griffith/images/griffith.png
-%{_datadir}/griffith/images/meter00.png
-%{_datadir}/griffith/images/meter01.png
-%{_datadir}/griffith/images/meter010.png
-%{_datadir}/griffith/images/meter02.png
-%{_datadir}/griffith/images/meter03.png
-%{_datadir}/griffith/images/meter04.png
-%{_datadir}/griffith/images/meter05.png
-%{_datadir}/griffith/images/meter06.png
-%{_datadir}/griffith/images/meter07.png
-%{_datadir}/griffith/images/meter08.png
-%{_datadir}/griffith/images/meter09.png
-%{_datadir}/griffith/images/nill.png
+%{_datadir}/%{name}/images/00.png
+%{_datadir}/%{name}/images/01.png
+%{_datadir}/%{name}/images/010.png
+%{_datadir}/%{name}/images/02.png
+%{_datadir}/%{name}/images/03.png
+%{_datadir}/%{name}/images/04.png
+%{_datadir}/%{name}/images/05.png
+%{_datadir}/%{name}/images/06.png
+%{_datadir}/%{name}/images/07.png
+%{_datadir}/%{name}/images/08.png
+%{_datadir}/%{name}/images/09.png
+%{_datadir}/%{name}/images/default.png
+%{_datadir}/%{name}/images/default_thumbnail.png
+%{_datadir}/%{name}/images/griffith.png
+%{_datadir}/%{name}/images/meter00.png
+%{_datadir}/%{name}/images/meter01.png
+%{_datadir}/%{name}/images/meter010.png
+%{_datadir}/%{name}/images/meter02.png
+%{_datadir}/%{name}/images/meter03.png
+%{_datadir}/%{name}/images/meter04.png
+%{_datadir}/%{name}/images/meter05.png
+%{_datadir}/%{name}/images/meter06.png
+%{_datadir}/%{name}/images/meter07.png
+%{_datadir}/%{name}/images/meter08.png
+%{_datadir}/%{name}/images/meter09.png
+%{_datadir}/%{name}/images/nill.png
 %{_datadir}/%{name}/plugins
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
