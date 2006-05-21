@@ -1,7 +1,3 @@
-# TODO:
-# - fix desktop file ??
-# - Requires: /usr/bin/env -> /usr/bin/python for autodeps
-# - py_compile?
 #
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
@@ -9,16 +5,17 @@
 Summary:	griffith - film collection manager
 Summary(pl):	griffith - program kataloguj±cy filmy
 Name:		griffith
-Version:	0.6
-Release:	2
+Version:	0.6.1
+Release:	3
 License:	GPL v2
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	a61e267d64197472a6068d7b5310ef55
-Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{version}.tar.gz
+# Source0-md5:	41b9b4f882b6973ea684ac247adbaa24
+Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-0.6.tar.gz
 # Source1-md5:	83609337d721f35277c2970866dbfe7e
 Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-env_python.patch
 URL:		http://griffith.vasconunes.net/
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
@@ -62,6 +59,7 @@ Dodatkowe pliki graficzne.
 %prep
 %setup -q -a1
 %patch0 -p1
+%patch1 -p1
 
 mv griffith-extra-artwork-0.6/images/*.png images/
 
@@ -77,6 +75,12 @@ ln -fs %{_datadir}/%{name}/lib/%{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
+
+
+rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/*.py
+
 %find_lang %{name}
 
 %clean
@@ -89,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/lib
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
-%{_datadir}/%{name}/lib/*.py
+%{_datadir}/%{name}/lib/*.pyc
 %{_datadir}/%{name}/export_templates
 %{_datadir}/%{name}/glade
 %dir %{_datadir}/%{name}/images
@@ -119,7 +123,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/images/meter08.png
 %{_datadir}/%{name}/images/meter09.png
 %{_datadir}/%{name}/images/nill.png
-%{_datadir}/%{name}/plugins
+%dir %{_datadir}/%{name}/plugins
+%dir %{_datadir}/%{name}/plugins/movie
+%dir %{_datadir}/%{name}/plugins/export
+%{_datadir}/%{name}/plugins/movie/*.py
+%{_datadir}/%{name}/plugins/export/*.py
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
 %{_mandir}/*/man?/*
