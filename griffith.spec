@@ -22,14 +22,15 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
+BuildRequires:	rpmbuild(macros) >= 1.234
 %pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
 Requires:	python-Imaging
 Requires:	python-ReportLab
+%{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.0
 Requires:	python-sqlite1 >= 1.1.7
-%{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 #Suggests:	python-gnome-extras
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -77,9 +78,7 @@ install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
-
-
-rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/*.py
+%py_postclean %{_datadir}/%{name}/lib/*.py
 
 %find_lang %{name}
 
