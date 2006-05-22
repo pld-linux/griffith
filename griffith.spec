@@ -78,7 +78,9 @@ install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
-%py_postclean %{_datadir}/%{name}/lib/*.py
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
+%py_postclean %{_datadir}/%{name}/lib
 
 %find_lang %{name}
 
@@ -92,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/lib
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
-%{_datadir}/%{name}/lib/*.pyc
+%{_datadir}/%{name}/lib/*.py[co]
 %{_datadir}/%{name}/export_templates
 %{_datadir}/%{name}/glade
 %dir %{_datadir}/%{name}/images
