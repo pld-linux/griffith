@@ -76,11 +76,9 @@ ln -fs %{_datadir}/%{name}/lib/%{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
-%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
-%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
-%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/%{name}
-%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}/lib
-%py_postclean %{_datadir}/%{name}/lib
+%py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
+%py_postclean %{_datadir}/%{name}
 
 %find_lang %{name}
 
@@ -127,8 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/plugins
 %dir %{_datadir}/%{name}/plugins/movie
 %dir %{_datadir}/%{name}/plugins/export
-%{_datadir}/%{name}/plugins/movie/*.py
-%{_datadir}/%{name}/plugins/export/*.py
+%{_datadir}/%{name}/plugins/movie/*.py[co]
+%{_datadir}/%{name}/plugins/export/*.py[co]
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.*
 %{_mandir}/*/man?/*
