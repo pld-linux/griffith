@@ -26,7 +26,7 @@ BuildRequires:	python-pygtk-devel
 BuildRequires:	rpmbuild(macros) >= 1.234
 %pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
-Requires:	python-Imaging
+Requires:	python-PIL
 Requires:	python-ReportLab
 %{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
