@@ -1,7 +1,6 @@
-diff -ruN griffith-0.6./Makefile griffith-0.6/Makefile
---- griffith-0.6./Makefile	2006-03-07 02:04:46.000000000 +0100
-+++ griffith-0.6/Makefile	2006-03-07 02:07:13.973604296 +0100
-@@ -72,8 +72,6 @@
+--- griffith-0.9~rc1.org/Makefile	2006-12-28 16:41:04.000000000 +0100
++++ griffith-0.9~rc1/Makefile	2006-12-28 16:41:56.000000000 +0100
+@@ -80,8 +80,6 @@
  	
  	if test -f $(PREFIX)/bin/griffith; then ${RM} $(PREFIX)/bin/griffith; fi	
  	
