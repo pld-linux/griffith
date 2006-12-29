@@ -1,16 +1,19 @@
-#
+# 
+# TODO:
+# Polish man pages are in utf-8, convert it or what?
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
 #
 Summary:	griffith - film collection manager
 Summary(pl):	griffith - program kataloguj±cy filmy
 Name:		griffith
-Version:	0.6.2
-Release:	1
+Version:	0.9
+%define _re rc1
+Release:	0.%{_re}.1
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	e1366baf254c587937389f5fef728c96
+Source0:	http://download.berlios.de/griffith/%{name}-%{version}-rc1.tar.gz
+# Source0-md5:	0058d725df61afeecad35382373cffe8
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-0.6.tar.gz
 # Source1-md5:	83609337d721f35277c2970866dbfe7e
 Source2:	%{name}.desktop
@@ -31,7 +34,9 @@ Requires:	python-ReportLab
 %{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.0
-Requires:	python-sqlite1 >= 1.1.7
+Requires:	python-sqlite >= 2.0.0
+Requires:	python-SQLAlchemy
+Requires:	python-PyXML
 #Suggests:	python-gnome-extras
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -59,7 +64,7 @@ More graphic files.
 Dodatkowe pliki graficzne.
 
 %prep
-%setup -q -a1
+%setup -q -a1 -n %{name}-%{version}~%{_re}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -95,8 +100,15 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/lib
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
-%{_datadir}/%{name}/export_templates
-%{_datadir}/%{name}/glade
+%dir %{_datadir}/%{name}/export_templates
+%{_datadir}/%{name}/export_templates/*/*.tpl
+%{_datadir}/%{name}/export_templates/*/*.css
+%{_datadir}/%{name}/export_templates/*/*.jpg
+%{_datadir}/%{name}/export_templates/*/*.xml
+%{_datadir}/%{name}/export_templates/*/*.gif
+%dir %{_datadir}/%{name}/glade
+%{_datadir}/%{name}/glade/*.glade
+%{_datadir}/%{name}/glade/*.png
 %dir %{_datadir}/%{name}/images
 %{_datadir}/%{name}/images/00.png
 %{_datadir}/%{name}/images/01.png
@@ -124,15 +136,18 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/images/meter08.png
 %{_datadir}/%{name}/images/meter09.png
 %{_datadir}/%{name}/images/nill.png
-%dir %{_datadir}/%{name}/plugins
-%dir %{_datadir}/%{name}/plugins/movie
-%dir %{_datadir}/%{name}/plugins/export
-%{_datadir}/%{name}/plugins/movie/*.py[co]
-%{_datadir}/%{name}/plugins/export/*.py[co]
+%dir %{_datadir}/%{name}/lib/plugins
+%dir %{_datadir}/%{name}/lib/plugins/movie
+%dir %{_datadir}/%{name}/lib/plugins/export
+%dir %{_datadir}/%{name}/lib/plugins/imp
+%{_datadir}/%{name}/lib/plugins/*.py[co]
+%{_datadir}/%{name}/lib/plugins/movie/*.py[co]
+%{_datadir}/%{name}/lib/plugins/export/*.py[co]
+%{_datadir}/%{name}/lib/plugins/imp/*.py[co]
 %{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.*
+%{_pixmapsdir}/%{name}.png
+%{_pixmapsdir}/%{name}.xpm
 %{_mandir}/*/man?/*
-%{_mandir}/man?/*
 
 %files extra-artwork
 %defattr(644,root,root,755)
