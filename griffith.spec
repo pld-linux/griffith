@@ -3,7 +3,7 @@
 %bcond_without gtkspell    # don't build with spell checker
 #
 Summary:	griffith - film collection manager
-Summary(pl):	griffith - program kataloguj±cy filmy
+Summary(pl.UTF-8):   griffith - program katalogujÄ…cy filmy
 Name:		griffith
 Version:	0.6.2
 Release:	2
@@ -41,13 +41,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Griffith is a movie collection manager application.
 
-%description -l pl
-Griffith to program s³u¿±cy do katalogowania i zarz±dzania kolekcj±
-filmów.
+%description -l pl.UTF-8
+Griffith to program sÅ‚uÅ¼Ä…cy do katalogowania i zarzÄ…dzania kolekcjÄ…
+filmÃ³w.
 
 %package extra-artwork
 Summary:	Extra graphic files
-Summary(pl):	Dodatkowe plik graficzne
+Summary(pl.UTF-8):   Dodatkowe plik graficzne
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-extra-artwork = %{version}-%{release}
@@ -55,7 +55,7 @@ Provides:	%{name}-extra-artwork = %{version}-%{release}
 %description extra-artwork
 More graphic files.
 
-%description extra-artwork -l pl
+%description extra-artwork -l pl.UTF-8
 Dodatkowe pliki graficzne.
 
 %prep
