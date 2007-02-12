@@ -5,17 +5,16 @@
 %bcond_without gtkspell    # don't build with spell checker
 #
 Summary:	griffith - film collection manager
-Summary(pl):	griffith - program kataloguj±cy filmy
+Summary(pl.UTF-8):   griffith - program katalogujÄ…cy filmy
 Name:		griffith
 Version:	0.9
-%define _re rc1
-Release:	0.%{_re}.1
+Release:	1
 License:	GPL v2
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/griffith/%{name}-%{version}-rc1.tar.gz
-# Source0-md5:	0058d725df61afeecad35382373cffe8
-Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-0.6.tar.gz
-# Source1-md5:	83609337d721f35277c2970866dbfe7e
+Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
+# Source0-md5:	436c12cd18a038b13fc67e5e3a34162e
+Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{version}.tar.gz
+# Source1-md5:	a3bfdf56badf97172ec83deeda7bce1e
 Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-env_python.patch
@@ -46,13 +45,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Griffith is a movie collection manager application.
 
-%description -l pl
-Griffith to program s³u¿±cy do katalogowania i zarz±dzania kolekcj±
-filmów.
+%description -l pl.UTF-8
+Griffith to program sÅ‚uÅ¼Ä…cy do katalogowania i zarzÄ…dzania kolekcjÄ…
+filmÃ³w.
 
 %package extra-artwork
 Summary:	Extra graphic files
-Summary(pl):	Dodatkowe plik graficzne
+Summary(pl.UTF-8):   Dodatkowe plik graficzne
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-extra-artwork = %{version}-%{release}
@@ -60,16 +59,16 @@ Provides:	%{name}-extra-artwork = %{version}-%{release}
 %description extra-artwork
 More graphic files.
 
-%description extra-artwork -l pl
+%description extra-artwork -l pl.UTF-8
 Dodatkowe pliki graficzne.
 
 %prep
-%setup -q -a1 -n %{name}-%{version}~%{_re}
+%setup -q -a1 -n %{name}-%{version}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
-mv griffith-extra-artwork-0.6/images/*.png images/
+mv griffith-extra-artwork-%{version}/images/*.png images/
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -101,11 +100,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
 %dir %{_datadir}/%{name}/export_templates
-%{_datadir}/%{name}/export_templates/*/*.tpl
-%{_datadir}/%{name}/export_templates/*/*.css
-%{_datadir}/%{name}/export_templates/*/*.jpg
-%{_datadir}/%{name}/export_templates/*/*.xml
-%{_datadir}/%{name}/export_templates/*/*.gif
+%dir %{_datadir}/%{name}/export_templates/csv/
+%{_datadir}/%{name}/export_templates/csv/*
+%dir %{_datadir}/%{name}/export_templates/html_tables/
+%{_datadir}/%{name}/export_templates/html_tables/*
+%dir %{_datadir}/%{name}/export_templates/html_table/
+%{_datadir}/%{name}/export_templates/html_table/*
+%dir %{_datadir}/%{name}/export_templates/latex/
+%{_datadir}/%{name}/export_templates/latex/*
+%dir %{_datadir}/%{name}/export_templates/xml/
+%{_datadir}/%{name}/export_templates/xml/*
 %dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/*.glade
 %{_datadir}/%{name}/glade/*.png
@@ -136,6 +140,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/images/meter08.png
 %{_datadir}/%{name}/images/meter09.png
 %{_datadir}/%{name}/images/nill.png
+%{_datadir}/%{name}/images/seen.png
+%{_datadir}/%{name}/images/unseen.png
 %dir %{_datadir}/%{name}/lib/plugins
 %dir %{_datadir}/%{name}/lib/plugins/movie
 %dir %{_datadir}/%{name}/lib/plugins/export
@@ -148,6 +154,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/%{name}.png
 %{_pixmapsdir}/%{name}.xpm
 %{_mandir}/*/man?/*
+%{_mandir}/man1/*
 
 %files extra-artwork
 %defattr(644,root,root,755)
