@@ -3,7 +3,7 @@
 %bcond_without gtkspell    # don't build with spell checker
 #
 Summary:	griffith - film collection manager
-Summary(pl.UTF-8):   griffith - program katalogujący filmy
+Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
 Version:	0.6.2
 Release:	2
@@ -47,7 +47,7 @@ filmów.
 
 %package extra-artwork
 Summary:	Extra graphic files
-Summary(pl.UTF-8):   Dodatkowe plik graficzne
+Summary(pl.UTF-8):	Dodatkowe plik graficzne
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-extra-artwork = %{version}-%{release}
