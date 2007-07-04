@@ -4,17 +4,19 @@
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
 #
+%define		artworkver 0.9.3
+#
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.9
+Version:	0.9.3.1
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	436c12cd18a038b13fc67e5e3a34162e
-Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{version}.tar.gz
-# Source1-md5:	a3bfdf56badf97172ec83deeda7bce1e
+# Source0-md5:	b0761f848756dace248135abe89459f1
+Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
+# Source1-md5:	3a0cb7fc9e555efb0c6be558dfbdd944
 Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-env_python.patch
@@ -54,7 +56,7 @@ Summary:	Extra graphic files
 Summary(pl.UTF-8):	Dodatkowe plik graficzne
 Group:		X11/Applications/Multimedia
 Requires:	%{name} = %{version}-%{release}
-Provides:	%{name}-extra-artwork = %{version}-%{release}
+Provides:	%{name}-extra-artwork = %{artworkver}-%{release}
 
 %description extra-artwork
 More graphic files.
@@ -68,7 +70,7 @@ Dodatkowe pliki graficzne.
 %patch1 -p1
 %patch2 -p1
 
-mv griffith-extra-artwork-%{version}/images/*.png images/
+mv griffith-extra-artwork-%{artworkver}/images/*.png images/
 
 %install
 rm -rf $RPM_BUILD_ROOT
