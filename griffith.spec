@@ -1,22 +1,20 @@
 # 
-# TODO:
-# Polish man pages are in utf-8, convert it or what?
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
 #
-%define		artworkver 0.9.3
+%define		artworkver 0.9.4
 #
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.9.3.1
+Version:	0.9.9
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	b0761f848756dace248135abe89459f1
+# Source0-md5:	dc50a8ea9fe0681385cf5e8be6f7a0e2
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
-# Source1-md5:	3a0cb7fc9e555efb0c6be558dfbdd944
+# Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-env_python.patch
@@ -95,10 +93,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README AUTHORS ChangeLog
+%doc NEWS README AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/lib
+%dir %{_datadir}/%{name}/lib/sqlalchemy
+%{_datadir}/%{name}/lib/sqlalchemy/*.py[co]
+%dir %{_datadir}/%{name}/lib/sqlalchemy/databases
+%{_datadir}/%{name}/lib/sqlalchemy/databases/*.py[co]
+%dir %{_datadir}/%{name}/lib/sqlalchemy/engine
+%{_datadir}/%{name}/lib/sqlalchemy/engine/*.py[co]
+%dir %{_datadir}/%{name}/lib/sqlalchemy/ext
+%{_datadir}/%{name}/lib/sqlalchemy/ext/*.py[co]
+%dir %{_datadir}/%{name}/lib/sqlalchemy/mods
+%{_datadir}/%{name}/lib/sqlalchemy/mods/*.py[co]
+%dir %{_datadir}/%{name}/lib/sqlalchemy/orm
+%{_datadir}/%{name}/lib/sqlalchemy/orm/*.py[co]
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
 %dir %{_datadir}/%{name}/export_templates
