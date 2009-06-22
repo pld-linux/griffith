@@ -1,4 +1,4 @@
-# 
+#
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
 #
@@ -7,12 +7,12 @@
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.9.9
+Version:	0.9.10
 Release:	1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	dc50a8ea9fe0681385cf5e8be6f7a0e2
+# Source0-md5:	2554718b47f2ebc9d97958a2ae6d36aa
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -29,13 +29,13 @@ BuildRequires:	rpmbuild(macros) >= 1.234
 %pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
 Requires:	python-PIL
+Requires:	python-PyXML
 Requires:	python-ReportLab
+Requires:	python-SQLAlchemy
 %{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.0
 Requires:	python-sqlite >= 2.0.0
-Requires:	python-SQLAlchemy
-Requires:	python-PyXML
 #Suggests:	python-gnome-extras
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
