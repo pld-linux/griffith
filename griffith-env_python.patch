@@ -1,9 +1,0 @@
-diff -Nur griffith-0.9.org/griffith griffith-0.9/griffith
---- griffith-0.9.org/griffith	2007-02-20 21:04:17.000000000 +0100
-+++ griffith-0.9/griffith	2007-02-20 21:05:25.000000000 +0100
-@@ -1,4 +1,4 @@
--#!/usr/bin/env python
-+#!/usr/bin/python
- # -*- coding: utf-8 -*-
- 
- __revision__ = '$Id$'
