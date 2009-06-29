@@ -19,7 +19,7 @@ Source2:	%{name}.desktop
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-env_python.patch
 Patch2:		%{name}-plugin.patch
-URL:		http://griffith.vasconunes.net/
+URL:		http://www.griffith.cc/
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig
