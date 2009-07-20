@@ -1,18 +1,21 @@
 #
+# TODO: include /usr/share/griffith/lib/db/*.py[co] files?
+#
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
 #
-%define		artworkver 0.9.4
+%define	artworkver	0.9.4
+%define	_rc		rc1
 #
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.9.10
-Release:	1
+Version:	0.10
+Release:	0.%{_rc}.1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	2554718b47f2ebc9d97958a2ae6d36aa
+Source0:	http://download.berlios.de/griffith/%{name}-%{version}-%{_rc}.tar.gz
+# Source0-md5:	84467a45fcc7ae547ed96104efec4bf0
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -63,7 +66,7 @@ More graphic files.
 Dodatkowe pliki graficzne.
 
 %prep
-%setup -q -a1
+%setup -q -a1 -n %{name}-%{version}-%{_rc}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -96,19 +99,19 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
-%dir %{_datadir}/%{name}/lib
-%dir %{_datadir}/%{name}/lib/sqlalchemy
-%{_datadir}/%{name}/lib/sqlalchemy/*.py[co]
-%dir %{_datadir}/%{name}/lib/sqlalchemy/databases
-%{_datadir}/%{name}/lib/sqlalchemy/databases/*.py[co]
-%dir %{_datadir}/%{name}/lib/sqlalchemy/engine
-%{_datadir}/%{name}/lib/sqlalchemy/engine/*.py[co]
-%dir %{_datadir}/%{name}/lib/sqlalchemy/ext
-%{_datadir}/%{name}/lib/sqlalchemy/ext/*.py[co]
-%dir %{_datadir}/%{name}/lib/sqlalchemy/mods
-%{_datadir}/%{name}/lib/sqlalchemy/mods/*.py[co]
-%dir %{_datadir}/%{name}/lib/sqlalchemy/orm
-%{_datadir}/%{name}/lib/sqlalchemy/orm/*.py[co]
+#%%dir %{_datadir}/%{name}/lib
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy
+#%%{_datadir}/%{name}/lib/sqlalchemy/*.py[co]
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy/databases
+#%%{_datadir}/%{name}/lib/sqlalchemy/databases/*.py[co]
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy/engine
+#%%{_datadir}/%{name}/lib/sqlalchemy/engine/*.py[co]
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy/ext
+#%%{_datadir}/%{name}/lib/sqlalchemy/ext/*.py[co]
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy/mods
+#%%{_datadir}/%{name}/lib/sqlalchemy/mods/*.py[co]
+#%%dir %{_datadir}/%{name}/lib/sqlalchemy/orm
+#%%{_datadir}/%{name}/lib/sqlalchemy/orm/*.py[co]
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
 %dir %{_datadir}/%{name}/export_templates
