@@ -10,7 +10,7 @@ Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
 Version:	0.10
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc NEWS README AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
-#%%dir %{_datadir}/%{name}/lib
+%dir %{_datadir}/%{name}/lib
 #%%dir %{_datadir}/%{name}/lib/sqlalchemy
 #%%{_datadir}/%{name}/lib/sqlalchemy/*.py[co]
 #%%dir %{_datadir}/%{name}/lib/sqlalchemy/databases
