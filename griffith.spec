@@ -156,10 +156,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/images/nill.png
 %{_datadir}/%{name}/images/seen.png
 %{_datadir}/%{name}/images/unseen.png
+%dir %{_datadir}/%{name}/lib/db
 %dir %{_datadir}/%{name}/lib/plugins
 %dir %{_datadir}/%{name}/lib/plugins/movie
 %dir %{_datadir}/%{name}/lib/plugins/export
 %dir %{_datadir}/%{name}/lib/plugins/imp
+%{_datadir}/%{name}/lib/db/*.py[co]
 %{_datadir}/%{name}/lib/plugins/*.py[co]
 %{_datadir}/%{name}/lib/plugins/movie/*.py[co]
 %{_datadir}/%{name}/lib/plugins/export/*.py[co]
