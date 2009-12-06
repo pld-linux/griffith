@@ -27,6 +27,7 @@ BuildRequires:	intltool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
 %pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
