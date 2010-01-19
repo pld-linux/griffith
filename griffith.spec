@@ -9,12 +9,12 @@
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.10
-Release:	2
+Version:	0.11
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
-# Source0-md5:	1b83ed8de48b39c134d37ffe84b0b6cc
+# Source0-md5:	f7ba19baf9cf1a553b7a4f0692f79430
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -49,8 +49,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Griffith is a movie collection manager application.
 
 %description -l pl.UTF-8
-Griffith to program służący do katalogowania i zarządzania
-kolekcją filmów.
+Griffith to program służący do katalogowania i zarządzania kolekcją
+filmów.
 
 %package extra-artwork
 Summary:	Extra graphic files
@@ -161,11 +161,13 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/%{name}/lib/plugins
 %dir %{_datadir}/%{name}/lib/plugins/movie
 %dir %{_datadir}/%{name}/lib/plugins/export
+%dir %{_datadir}/%{name}/lib/plugins/extensions
 %dir %{_datadir}/%{name}/lib/plugins/imp
 %{_datadir}/%{name}/lib/db/*.py[co]
 %{_datadir}/%{name}/lib/plugins/*.py[co]
 %{_datadir}/%{name}/lib/plugins/movie/*.py[co]
 %{_datadir}/%{name}/lib/plugins/export/*.py[co]
+%{_datadir}/%{name}/lib/plugins/extensions/*.py[co]
 %{_datadir}/%{name}/lib/plugins/imp/*.py[co]
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
