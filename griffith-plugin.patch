@@ -1,26 +1,26 @@
---- griffith-0.10-rc1/lib/gutils.py~	2009-06-08 23:40:22.000000000 +0200
-+++ griffith-0.10-rc1/lib/gutils.py	2009-07-20 10:20:55.000000000 +0200
-@@ -334,7 +334,7 @@
+--- griffith-0.11/lib/gutils.py~	2010-01-09 23:45:18.000000000 +0100
++++ griffith-0.11/lib/gutils.py	2010-01-19 13:08:32.234490934 +0100
+@@ -390,7 +390,7 @@
      """returns available plugins"""
  
      import glob
--    return glob.glob("%s/%s*.py" % (directory,prefix) )
-+    return glob.glob("%s/%s*.pyc" % (directory,prefix) )
+-    return glob.glob("%s/%s*.py" % (directory, prefix))
++    return glob.glob("%s/%s*.pyc" % (directory, prefix))
+ 
  
  def findKey(val, dict):
-     for key, value in dict.items():
---- griffith-0.10-rc1/lib/initialize.py~	2009-07-04 15:21:31.000000000 +0200
-+++ griffith-0.10-rc1/lib/initialize.py	2009-07-20 10:21:55.000000000 +0200
-@@ -392,7 +392,7 @@
+--- griffith-0.11/lib/initialize.py~	2010-01-05 21:06:06.000000000 +0100
++++ griffith-0.11/lib/initialize.py	2010-01-19 13:10:01.041150494 +0100
+@@ -423,7 +423,7 @@
      mcounter = 0
      default_plugin = self.config.get('default_movie_plugin')
      for p in self.plugins:
--        plugin_module = os.path.basename(p).replace('.py','')
-+        plugin_module = os.path.basename(p).replace('.pyc','')
-         plugin_name = plugin_module.replace('PluginMovie','')
+-        plugin_module = os.path.basename(p).replace('.py', '')
++        plugin_module = os.path.basename(p).replace('.pyc', '')
+         plugin_name = plugin_module.replace('PluginMovie', '')
          self.widgets['add']['source'].append_text(plugin_name)
          self.widgets['preferences']['default_plugin'].append_text(plugin_name)
-@@ -410,7 +410,7 @@
+@@ -442,7 +442,7 @@
          self.locations['export_plugins'])
      plugins.sort()
      for p in plugins:
