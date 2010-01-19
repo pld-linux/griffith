@@ -13,7 +13,7 @@ Version:	0.11
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://download.berlios.de/griffith/%{name}-%{version}.tar.gz
+Source0:	http://launchpad.net/griffith/trunk/0.11/+download/%{name}-%{version}.tar.gz
 # Source0-md5:	f7ba19baf9cf1a553b7a4f0692f79430
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
