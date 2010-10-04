@@ -9,12 +9,12 @@
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.11
-Release:	2
+Version:	0.12
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://launchpad.net/griffith/trunk/0.11/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	f7ba19baf9cf1a553b7a4f0692f79430
+Source0:	http://launchpad.net/griffith/trunk/0.12/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	da643cabca1743632eebecd9a4f73039
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -33,11 +33,11 @@ BuildRequires:	rpmbuild(macros) >= 1.234
 Requires:	gtk+2 >= 2:2.6.0
 Requires:	python-PIL
 Requires:	python-PyXML
-Requires:	python-ReportLab
-Requires:	python-SQLAlchemy
+Requires:	python-ReportLab >= 1.19
+Requires:	python-SQLAlchemy >= 0.5
 %{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
-Requires:	python-pygtk-gtk >= 2:2.6.0
+Requires:	python-pygtk-gtk >= 2:2.6.1
 Requires:	python-sqlite >= 2.0.0
 #Suggests:	python-gnome-extras
 BuildArch:	noarch
@@ -100,18 +100,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/lib
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy
-#%%{_datadir}/%{name}/lib/sqlalchemy/*.py[co]
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy/databases
-#%%{_datadir}/%{name}/lib/sqlalchemy/databases/*.py[co]
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy/engine
-#%%{_datadir}/%{name}/lib/sqlalchemy/engine/*.py[co]
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy/ext
-#%%{_datadir}/%{name}/lib/sqlalchemy/ext/*.py[co]
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy/mods
-#%%{_datadir}/%{name}/lib/sqlalchemy/mods/*.py[co]
-#%%dir %{_datadir}/%{name}/lib/sqlalchemy/orm
-#%%{_datadir}/%{name}/lib/sqlalchemy/orm/*.py[co]
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
 %dir %{_datadir}/%{name}/export_templates
