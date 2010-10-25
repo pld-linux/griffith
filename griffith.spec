@@ -9,12 +9,12 @@
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.12
+Version:	0.12.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://launchpad.net/griffith/trunk/0.12/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	da643cabca1743632eebecd9a4f73039
+Source0:	http://launchpad.net/griffith/trunk/0.12.1/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	fb77aac2b1956bcb0eb766380daaf77b
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -64,6 +64,18 @@ More graphic files.
 
 %description extra-artwork -l pl.UTF-8
 Dodatkowe pliki graficzne.
+
+%package -n bash-completion-griffith
+Summary:	bash-completion for griffith
+Summary(pl.UTF-8):	bashowe uzupełnianie nazw dla grifith
+Group:		Applications/Shells
+Requires:	%{name} = %{version}-%{release}
+
+%description -n bash-completion-griffith
+bash-completion for griffith.
+
+%description -n bash-completion-griffith -l pl.UTF-8
+Pakiet ten dostarcza bashowe uzupełnianie nazw dla griffith.
 
 %prep
 %setup -q -a1
@@ -166,3 +178,7 @@ rm -rf $RPM_BUILD_ROOT
 %files extra-artwork
 %defattr(644,root,root,755)
 %{_datadir}/%{name}/images/PluginMovie*.png
+
+%files -n bash-completion-griffith
+%defattr(644,root,root,755)
+%{_sysconfdir}/bash_completion.d/*
