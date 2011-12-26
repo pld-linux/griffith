@@ -9,7 +9,7 @@ Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
 Version:	0.13
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{version}.tar.gz

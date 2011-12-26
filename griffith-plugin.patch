@@ -29,3 +29,25 @@
          plugin_name = plugin_module.replace('PluginExport', '')
          menu_items = gtk.MenuItem(plugin_name)
          self.widgets['menu']['export'].append(menu_items)
+--- griffith-0.13/lib/plugins/imp/__init__.py~	2011-01-18 12:25:50.000000000 +0200
++++ griffith-0.13/lib/plugins/imp/__init__.py	2011-12-26 23:29:26.563009107 +0200
+@@ -36,7 +36,7 @@
+ import edit
+ 
+ # detect all plugins:
+-__all__ = [os.path.basename(x)[:-3] for x in glob.glob("%s/*.py" % os.path.dirname(__file__))]
++__all__ = [os.path.basename(x)[:-4] for x in glob.glob("%s/*.pyc" % os.path.dirname(__file__))]
+ __all__.remove('__init__')
+ 
+ 
+--- griffith-0.13/lib/plugins/export/__init__.py~	2011-02-08 23:10:58.000000000 +0200
++++ griffith-0.13/lib/plugins/export/__init__.py	2011-12-26 23:30:08.681616820 +0200
+@@ -36,7 +36,7 @@
+ from sql import update_whereclause
+ 
+ # detect all plugins:
+-__all__ = [os.path.basename(x)[:-3] for x in glob.glob("%s/PluginExport*.py" % os.path.dirname(__file__))]
++__all__ = [os.path.basename(x)[:-4] for x in glob.glob("%s/PluginExport*.pyc" % os.path.dirname(__file__))]
+ 
+ class Base(object):
+     description = None
