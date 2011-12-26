@@ -3,18 +3,17 @@
 #
 # Conditional build:
 %bcond_without gtkspell    # don't build with spell checker
-#
+
 %define	artworkver	0.9.4
-#
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.12.1
+Version:	0.13
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://launchpad.net/griffith/trunk/0.12.1/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	fb77aac2b1956bcb0eb766380daaf77b
+Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{version}.tar.gz
+# Source0-md5:	cf130806516fb476a268d950ac8aec91
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
@@ -39,7 +38,10 @@ Requires:	python-SQLAlchemy >= 0.5
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.1
 Requires:	python-sqlite >= 2.0.0
+Suggests:	python-MySQLdb >= 1.2.1-p2-2
+Suggests:	python-chardet
 #Suggests:	python-gnome-extras
+Suggests:	python-psycopg2 >= 1.1.21-6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -91,11 +93,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
-
 ln -fs %{_datadir}/%{name}/lib/%{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
-install data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
+
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p data/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -109,54 +111,27 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc NEWS README AUTHORS ChangeLog TODO
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/griffith
 %dir %{_datadir}/%{name}
 %dir %{_datadir}/%{name}/lib
 %attr(755,root,root) %{_datadir}/%{name}/lib/%{name}
 %{_datadir}/%{name}/lib/*.py[co]
 %dir %{_datadir}/%{name}/export_templates
-%dir %{_datadir}/%{name}/export_templates/csv/
+%dir %{_datadir}/%{name}/export_templates/csv
 %{_datadir}/%{name}/export_templates/csv/*
-%dir %{_datadir}/%{name}/export_templates/html_tables/
+%dir %{_datadir}/%{name}/export_templates/html_tables
 %{_datadir}/%{name}/export_templates/html_tables/*
-%dir %{_datadir}/%{name}/export_templates/html_table/
+%dir %{_datadir}/%{name}/export_templates/html_table
 %{_datadir}/%{name}/export_templates/html_table/*
-%dir %{_datadir}/%{name}/export_templates/latex/
+%dir %{_datadir}/%{name}/export_templates/latex
 %{_datadir}/%{name}/export_templates/latex/*
-%dir %{_datadir}/%{name}/export_templates/xml/
+%dir %{_datadir}/%{name}/export_templates/xml
 %{_datadir}/%{name}/export_templates/xml/*
 %dir %{_datadir}/%{name}/glade
 %{_datadir}/%{name}/glade/*.glade
 %{_datadir}/%{name}/glade/*.png
 %dir %{_datadir}/%{name}/images
-%{_datadir}/%{name}/images/00.png
-%{_datadir}/%{name}/images/01.png
-%{_datadir}/%{name}/images/010.png
-%{_datadir}/%{name}/images/02.png
-%{_datadir}/%{name}/images/03.png
-%{_datadir}/%{name}/images/04.png
-%{_datadir}/%{name}/images/05.png
-%{_datadir}/%{name}/images/06.png
-%{_datadir}/%{name}/images/07.png
-%{_datadir}/%{name}/images/08.png
-%{_datadir}/%{name}/images/09.png
-%{_datadir}/%{name}/images/default.png
-%{_datadir}/%{name}/images/default_thumbnail.png
-%{_datadir}/%{name}/images/griffith.png
-%{_datadir}/%{name}/images/meter00.png
-%{_datadir}/%{name}/images/meter01.png
-%{_datadir}/%{name}/images/meter010.png
-%{_datadir}/%{name}/images/meter02.png
-%{_datadir}/%{name}/images/meter03.png
-%{_datadir}/%{name}/images/meter04.png
-%{_datadir}/%{name}/images/meter05.png
-%{_datadir}/%{name}/images/meter06.png
-%{_datadir}/%{name}/images/meter07.png
-%{_datadir}/%{name}/images/meter08.png
-%{_datadir}/%{name}/images/meter09.png
-%{_datadir}/%{name}/images/nill.png
-%{_datadir}/%{name}/images/seen.png
-%{_datadir}/%{name}/images/unseen.png
+%{_datadir}/%{name}/images/*.png
 %dir %{_datadir}/%{name}/lib/db
 %dir %{_datadir}/%{name}/lib/plugins
 %dir %{_datadir}/%{name}/lib/plugins/movie
@@ -172,8 +147,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}.png
 %{_pixmapsdir}/%{name}.xpm
-%{_mandir}/*/man?/*
-%{_mandir}/man1/*
+%{_mandir}/man1/griffith.1*
+%lang(pl) %{_mandir}/pl/man1/griffith.1*
+%lang(pt) %{_mandir}/pt/man1/griffith.1*
 
 %files extra-artwork
 %defattr(644,root,root,755)
