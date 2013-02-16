@@ -9,7 +9,7 @@ Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
 Version:	0.13
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{version}.tar.gz
@@ -28,7 +28,6 @@ BuildRequires:	python-devel
 BuildRequires:	python-pygtk-devel
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.234
-%pyrequires_eq	python-modules
 Requires:	gtk+2 >= 2:2.6.0
 Requires:	python-PIL
 Requires:	python-PyXML
@@ -36,6 +35,8 @@ Requires:	python-ReportLab >= 1.19
 Requires:	python-SQLAlchemy >= 0.5
 %{?with_gtkspell:Requires: python-gnome-extras-gtkspell}
 Requires:	python-gnome-gconf
+Requires:	python-modules
+Requires:	python-pygtk-glade
 Requires:	python-pygtk-gtk >= 2:2.6.1
 Requires:	python-sqlite >= 2.0.0
 Suggests:	python-MySQLdb >= 1.2.1-p2
