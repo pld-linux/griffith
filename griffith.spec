@@ -38,7 +38,7 @@ Requires:	python-SQLAlchemy >= 0.5
 Requires:	python-gnome-gconf
 Requires:	python-pygtk-gtk >= 2:2.6.1
 Requires:	python-sqlite >= 2.0.0
-Suggests:	python-MySQLdb >= 1.2.1-p2-2
+Suggests:	python-MySQLdb >= 1.2.1-p2
 Suggests:	python-chardet
 #Suggests:	python-gnome-extras
 Suggests:	python-psycopg2 >= 1.1.21-6
