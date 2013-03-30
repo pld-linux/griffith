@@ -39,9 +39,11 @@ Requires:	python-modules
 Requires:	python-pygtk-glade
 Requires:	python-pygtk-gtk >= 2:2.6.1
 Requires:	python-sqlite >= 2.0.0
+# Python interface for MySQL connectivity
 Suggests:	python-MySQLdb >= 1.2.1-p2
+# CSV file encoding detections
 Suggests:	python-chardet
-#Suggests:	python-gnome-extras
+# Python interface for PostgreSQL connectivity
 Suggests:	python-psycopg2 >= 1.1.21-6
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
