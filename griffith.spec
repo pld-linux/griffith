@@ -92,7 +92,6 @@ mv griffith-extra-artwork-%{artworkver}/images/*.png images/
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
@@ -135,6 +134,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/glade/*.png
 %dir %{_datadir}/%{name}/images
 %{_datadir}/%{name}/images/*.png
+%exclude %{_datadir}/%{name}/images/PluginMovie*.png
 %dir %{_datadir}/%{name}/lib/db
 %dir %{_datadir}/%{name}/lib/plugins
 %dir %{_datadir}/%{name}/lib/plugins/movie
