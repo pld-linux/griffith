@@ -9,7 +9,7 @@ Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
 Version:	0.13
-Release:	6
+Release:	6.1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{version}.tar.gz
@@ -17,6 +17,7 @@ Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{vers
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
+Source3:	Kodi.py
 Patch100:	branch.diff
 # Patch100-md5:	f9d197867cefebf16cf690094007081d
 Patch0:		%{name}-Makefile.patch
@@ -97,6 +98,8 @@ mv griffith-extra-artwork-%{artworkver}/images/*.png images/
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+cp -p %{SOURCE3} $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/plugins/imp
 
 ln -fs %{_datadir}/%{name}/lib/%{name} $RPM_BUILD_ROOT%{_bindir}/%{name}
 
