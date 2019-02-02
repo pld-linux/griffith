@@ -8,22 +8,20 @@
 Summary:	griffith - film collection manager
 Summary(pl.UTF-8):	griffith - program katalogujący filmy
 Name:		griffith
-Version:	0.13
-Release:	7
+Version:	0.13.2
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
-Source0:	http://launchpad.net/griffith/trunk/%{version}/+download/%{name}-%{version}.tar.gz
-# Source0-md5:	cf130806516fb476a268d950ac8aec91
+Source0:	https://github.com/micjahn/Griffith/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	5d47dcf143bd0e853d9944e5af207f40
 Source1:	http://download.berlios.de/griffith/%{name}-extra-artwork-%{artworkver}.tar.gz
 # Source1-md5:	a18f9f900dc467f8ee801bb70776072f
 Source2:	%{name}.desktop
 Source3:	Kodi.py
-Patch100:	branch.diff
-# Patch100-md5:	f9d197867cefebf16cf690094007081d
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-env_python.patch
 Patch2:		%{name}-plugin.patch
-URL:		http://www.griffith.cc/
+URL:		https://github.com/micjahn/Griffith
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	intltool
 BuildRequires:	pkgconfig
@@ -86,8 +84,7 @@ bash-completion for griffith.
 Pakiet ten dostarcza bashowe uzupełnianie nazw dla griffith.
 
 %prep
-%setup -q -a1
-%patch100 -p1
+%setup -q -n Griffith-%{version} -a1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
